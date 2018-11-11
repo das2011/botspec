@@ -6,7 +6,6 @@ module BotSpec
 
       def configure_rspec
         config = ::RSpec.configuration
-
       end
 
       def self.run(args, err=$stderr, out=$stdout)
@@ -20,10 +19,7 @@ module BotSpec
         end
       end
 
-
       def run(args, out, err)
-
-
         setup(err, out)
 
         botname = args[:botname]

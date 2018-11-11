@@ -63,18 +63,20 @@ class Dialog
     return if interactions.size == 0
 
     @@lex_chat = lex_chat()
-    spec = ::RSpec.describe "#{@describe} #{@name}" do
+    examples << ::RSpec.describe("#{@describe} #{@name}") do
 
-      it interactions[0] do
-        resp = @@lex_chat.post_message(interactions[0], 'user_id')
+      it @name do
 
-        expect(resp[:message]).to eql(interactions[1])
+        interactions.each_slice(2) do |spec, value|
+          puts spec
+          puts value
+          resp = @@lex_chat.post_message(spec, 'user_id')
+
+          expect(resp[:message]).to eql(value)
+        end
       end
     end
-
-    examples << spec
-    create_example(interactions.drop(2), examples)
-
+    
     examples
   end
 end
