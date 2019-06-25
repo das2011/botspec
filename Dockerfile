@@ -5,18 +5,20 @@ RUN mkdir /app/bot
 
 WORKDIR /app/bot
 
-COPY ./ /app/
+COPY ./ /app/bot
 
 RUN apk update && apk add  --no-cache git make gcc libc-dev
 
 ENV SPEC_PATH=$SPEC_PATH
 
-RUN gem install bundler
-RUN bundle install --path=/app
-
-RUN thor install /app/lib/cli.thor --as botspec --force
+RUN gem install bundler thor
+RUN bundle install --path=/app/bot
 
 
 
-CMD ["bundle", "exec", "thor", "cli", "--dialogs="]
+RUN bundle exec thor install lib/cli.thor --as botspec --force 
 
+
+
+# CMD ["bundle", "exec", "thor", "cli", "--dialogs="]
+CMD sh

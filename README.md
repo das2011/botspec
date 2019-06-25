@@ -58,6 +58,14 @@ docker run -e AWS_REGION -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -v `pwd`:
 
 Assuming you are in your project root directory and your specs are in the corresponding specs folder
 
+To build the docker container you may run something like:
+```
+docker build -t botspec .
+docker tag botspec elliottmurray/botspec
+docker push elliottmurray/botspec
+
+```
+
 
 
 ## Contributing
