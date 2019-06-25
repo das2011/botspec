@@ -36,9 +36,9 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "rspec", "~> 3.0"
   gem.add_runtime_dependency 'term-ansicolor', '~> 1.0'
-  #gem.add_runtime_dependency 'aws-sdk', "~> 3.0.1"
-  gem.add_runtime_dependency 'aws-sdk-lex', '~> 1'
-  gem.add_runtime_dependency 'aws-sdk-lexmodelbuildingservice', '~> 1'
+  gem.add_runtime_dependency 'aws-sdk', "~> 3.0.1"
+  #gem.add_runtime_dependency 'aws-sdk-lex', '~> 1'
+  #gem.add_runtime_dependency 'aws-sdk-lexmodelbuildingservice', '~> 1'
   gem.add_runtime_dependency 'thor', "~> 0.20.0"
   gem.add_runtime_dependency 'hashie', "~> 3.6.0"
 
