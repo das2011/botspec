@@ -9,13 +9,19 @@ class CLI < Thor
 
   desc 'verify', "Verify a chat suite"
   method_option :dialogs, aliases: "-f", desc: "Yaml file containing dialogs", :required => true
+  method_option :botname, aliases: "-n", desc: "The name of the Amazon Web Services Lex chatbot"
+
   def verify()
     dialogs = options[:dialogs]
 
-    name = 'ElliottOrderFlowers'
-    puts "running specs in #{dialogs} for bot #{name}"
+    bot_name = 'ElliottOrderFlowers'
+    if options[:botname]
+      bot_name = options[:botname]
+    end
 
-    BotSpec::BotSpecRunner.run({dialogs_path: dialogs, botname: name})
+    puts "running specs in #{dialogs} for bot #{bot_name}"
+
+    BotSpec::BotSpecRunner.run({dialogs_path: dialogs, botname: bot_name})
   end
 
 end
